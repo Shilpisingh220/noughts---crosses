@@ -1,29 +1,43 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="assets/scss/main.scss">
-</head>
-<body>
-    <main>
-        <h1>Noughts & crosses</h1>
-        <p>player: 0</p>
-        <div class="game-grid">
-            <div class="box">0</div>
-            <div class="box">0</div>
-            <div class="box">0</div>
-            <div class="box">0</div>
-            <div class="box">0</div>
-            <div class="box">0</div>
-            <div class="box">0</div>
-            <div class="box">0</div>
-            <div class="box">0</div>
-        </div>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=, initial-scale=1.0" />
+    <title>Noughts & crosses</title>
 
-        </div>
-        <button>New Game</button>
+    <link
+      rel="shortcut icon"
+      href="assets/images/favicon.png"
+      type="image/x-icon"
+    />
+
+    <!-- FONTS -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Teachers:ital,wght@0,400..800;1,400..800&display=swap"
+      rel="stylesheet"
+    />
+    <!-- CUSTOM STYLES -->
+    <link rel="stylesheet" href="assets/scss/main.scss" />
+  </head>
+  <body>
+    <main>
+      <h1 class="heading">Noughts & crosses</h1>
+      <p class="player-status">player: <span class="current-player">X</span></p>
+      <div class="game-grid">
+        <div class="box">0</div>
+        <div class="box">0</div>
+        <div class="box">0</div>
+        <div class="box">0</div>
+        <div class="box">0</div>
+        <div class="box">0</div>
+        <div class="box">0</div>
+        <div class="box">0</div>
+        <div class="box">0</div>
+      </div>
+
+      <button class="btn-reset">New Game</button>
     </main>
-</body>
+  </body>
 </html>
