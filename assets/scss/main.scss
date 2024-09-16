@@ -1,4 +1,9 @@
-* {
+@import "utils";
+
+// resets*
+*,
+*::before,
+*::after {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
@@ -74,10 +79,20 @@ main {
 }
 
 .btn-reset {
+  cursor: pointer;
   background: whitesmoke;
   border: 1px solid #333;
   border-radius: 1rem;
   padding: 0.5rem 2rem;
+  visibility:hidden;
+}
+
+.active {
+  visibility: visible;
+}
+
+.green {
+  background: greenyellow;
 }
 
 @media screen and (max-width: 450px) {
