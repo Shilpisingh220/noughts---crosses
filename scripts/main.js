@@ -44,7 +44,7 @@
 
 // console.log(nums);
 
-const nums = [2,4,6,8]
+// const nums = [2,4,6,8]
 // numsEven = [flase,true,flase,true]
 
 // const evenNums = nums.map (function (value) {
@@ -59,5 +59,40 @@ const nums = [2,4,6,8]
 
 // console.log(evenNums);
 
-const evenNums = [];
-nums.forEach()
+// const evenNums = [];
+// nums.forEach()
+
+
+const headingEl = document.querySelector(".heading");
+const currentPlayerEl = document.querySelector(".current-player");
+const boxes = document.querySelectorAll(".box");
+const resetBtn = document.querySelector(".btn-reset");
+
+console.log(boxes);
+// game variable
+const players = ["0", "x"];
+let currPlayer = "0";
+
+
+function getPlayer() {
+    const rn = math.floor(Math.random() *2);
+    return players[rn];
+}
+
+function swapPlayer(){
+    currPlayer = currPlayer === "0" ? "x" : "0" ;
+  }
+
+function handleClick(input) {
+    input.textContent = currPlayer;
+    swapPlayer();
+    currentPlayerEl.textContent = currPlayer;
+}
+
+// only the first one
+boxes.forEach(function (box) {
+box.addEventListener("click", function (){
+       handleClick(box);
+});
+});
+
