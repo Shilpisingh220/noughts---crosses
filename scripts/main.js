@@ -1,3 +1,7 @@
+import chances from "./chances.js";
+
+console.log(chances);
+
 // const fruits = ["apple", "kiwi", "banana", "mango", "cheeku"];
 
 // const a = fruits.unshift();
@@ -12,7 +16,6 @@
 // console.log(x);
 
 // console.log(getbetween([1, 2, 3, 4, 5]));
-
 
 // const fruits = ["apple", "kiwi", "banana", "mango", "cheeku"];
 
@@ -50,18 +53,17 @@
 // const evenNums = nums.map (function (value) {
 //     if (value % 2 == 0) {
 //         return "even";
-//     } else { 
+//     } else {
 //         return "odd";
 //     }
 //     }
-    
+
 // });
 
 // console.log(evenNums);
 
 // const evenNums = [];
 // nums.forEach()
-
 
 const headingEl = document.querySelector(".heading");
 const currentPlayerEl = document.querySelector(".current-player");
@@ -72,27 +74,53 @@ console.log(boxes);
 // game variable
 const players = ["0", "x"];
 let currPlayer = "0";
-
+let virtualGrid;
 
 function getPlayer() {
-    const rn = math.floor(Math.random() *2);
-    return players[rn];
+  const rn = Math.floor(Math.random() * 2);
+  return players[rn];
 }
 
-function swapPlayer(){
-    currPlayer = currPlayer === "0" ? "x" : "0" ;
+function swapPlayer() {
+  const newPlayer = currPlayer === "0" ? "x" : "0";
+  currPlayer = newPlayer;
+  currentPlayerEl.textContent = newPlayer;
+}
+
+function startGame() {
+  currPlayer = getPlayer();
+  virtualGrid = new Array(9).fill("");
+  currentPlayerEl.textContent = currPlayer;
+}
+
+function checkIfWon(){
+  
+}
+
+function handleBoxClick(input) {
+  if (virtualGrid[input] === ""){
+    console.log(input);
+  boxes[input].textContent = currPlayer;
+  boxes[input].style.cursor = "auto";
+  virtualGrid[input] = currPlayer;
+  console.log(virtualGrid);
+  swapPlayer();
   }
-
-function handleClick(input) {
-    input.textContent = currPlayer;
-    swapPlayer();
-    currentPlayerEl.textContent = currPlayer;
 }
 
-// only the first one
-boxes.forEach(function (box) {
-box.addEventListener("click", function (){
-       handleClick(box);
-});
+
+console.log(boxes);
+
+boxes.forEach(function (box, index) {
+  box.addEventListener("click", function () {
+    handleBoxClick(index);
+  });
 });
 
+function handleReset() {
+  alert("hey");
+}
+
+resetBtn.addEventListener("click", handleReset);
+
+document.addEventListener("DOMContentLoaded", startGame);
