@@ -94,7 +94,7 @@ function startGame() {
 }
 
 function checkIfWon(){
-  
+
 }
 
 function handleBoxClick(input) {
@@ -104,6 +104,7 @@ function handleBoxClick(input) {
   boxes[input].style.cursor = "auto";
   virtualGrid[input] = currPlayer;
   console.log(virtualGrid);
+  checkIfWon();
   swapPlayer();
   }
 }
