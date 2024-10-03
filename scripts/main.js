@@ -1,6 +1,6 @@
 import chances from "./chances.js";
 
-console.log(chances);
+// console.log(chances);
 
 // const fruits = ["apple", "kiwi", "banana", "mango", "cheeku"];
 
@@ -93,22 +93,54 @@ function startGame() {
   currentPlayerEl.textContent = currPlayer;
 }
 
-function checkIfWon(){
+function checkIfWon() {
+  chances.forEach((chance) => {
+    const [c1, c2, c3] = chance;
+    if (
+      virtualGrid[c1] === virtualGrid[c2] &&
+      virtualGrid[c2] === virtualGrid[c1] &&
+      virtualGrid[c3] === virtualGrid[c1] &&
+      virtualGrid[c1] !== "" &&
+      virtualGrid[c2] !== "" &&
+      virtualGrid[c3] !== ""
+    ) {
+      const winner = virtualGrid[c1];
+      headingEl.textContent = `Winner: $(winner)`;
 
+      boxes[c1].classList.add("green");
+      boxes[c2].classList.add("green");
+      boxes[c3].classList.add("green");
+
+      boxes.forEach((box) => (box.style.pointEvents = "none"));
+
+      resetBtn.classList.toggle("active");
+
+      return;
+    }
+  });
 }
 
 function handleBoxClick(input) {
-  if (virtualGrid[input] === ""){
-    console.log(input);
-  boxes[input].textContent = currPlayer;
-  boxes[input].style.cursor = "auto";
-  virtualGrid[input] = currPlayer;
-  console.log(virtualGrid);
-  checkIfWon();
-  swapPlayer();
+  if (virtualGrid[input] === "") {
+    boxes[input].textContent = currPlayer;
+    boxes[input].stylecursor = "auto";
+    virtualGrid[input] = currPlayer;
+
+    checkIfWon();
   }
 }
 
+function handleBoxClick(input) {
+  if (virtualGrid[input] === "") {
+    console.log(input);
+    boxes[input].textContent = currPlayer;
+    boxes[input].style.cursor = "auto";
+    virtualGrid[input] = currPlayer;
+    console.log(virtualGrid);
+    checkIfWon();
+    swapPlayer();
+  }
+}
 
 console.log(boxes);
 
